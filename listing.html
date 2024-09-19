@@ -6,17 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listing</title>
     <style>
-        
+         .container {max-width: 500px; border: 1px solid #ccc; padding: 30px; box-sizing: border-box; margin: 50px auto 0; }
+         .container input, select {padding: 8px 15px; width: 200px; box-sizing: border-box; margin-bottom: 3px;}
+         .container button{background: #035fff; color: #fff; padding: 6px 20px; font-size: 16px; border: none; cursor: pointer;}
+         ul{padding: 0px;}
+         ul li{list-style-type: none;}
     </style>
 </head>
 
 <body>
 
-    <h1>Listing</h1>
-
+    <div class="container">
+        <input type="text" id="numb" name="" placeholder="Number">
+        <button onclick="addlist()" id="btn">Add </button>
+        <button onclick="clearall()" id="btn">Clear all </button>
+        <ul id="list"></ul>
+    </div>
 <script>
-  
-</script>
+    let inputValue = Number(document.getElementById('numb').value);
 
+    function addlist(){
+        let inputValue = Number(document.getElementById('numb').value);
+
+        let list = document.getElementById('list').innerHTML + `<li>${inputValue}</li>`;
+
+        document.getElementById('list').innerHTML = list;
+        document.getElementById('numb').value = '';
+
+        }
+
+        function clearall(){
+            document.getElementById('list').innerHTML = "";
+        }
+</script>
+    
 </body>
 </html>
